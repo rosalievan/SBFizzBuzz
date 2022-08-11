@@ -1,27 +1,42 @@
-function FizzBuzz() {
-    for (let i = 1; i<= 100; i++) {
-        if (i% 7 == 0){
-            if (i%5 == 0 && i%3 == 0){
-                console.log('FizzBuzzBang')
+function FizzBuzz(inputnumber) {
+    let array = []
+        for (let i = 1; i<= inputnumber; i++) {
+            array = []
+    
+            // not sure i need to initiate these additionstrings externally
+            let sevenaddition = ""
+            if (i%7 == 0){sevenaddition = 'Bang'}
+    
+            let thirteenaddition = ""
+            if (i%13 == 0){thirteenaddition = 'Fezz'}
+    
+            if (i%11 == 0){
+                array.push(thirteenaddition, "Bong")
+            } else if (i%5 == 0 && i%3 == 0){
+                array.push('Fizz', thirteenaddition, 'Buzz', sevenaddition)
             } else if (i%3 == 0){
-                console.log('FizzBang')
+                array.push('Fizz', thirteenaddition, sevenaddition)
             } else if (i%5 == 0){
-                console.log('BuzzBang')
+                array.push('Buzz', thirteenaddition, sevenaddition)
             } else {
-                console.log('Bang')
+                let numberstring = i.toString()
+                array.push(numberstring)
             }
-
-        }
-        if (i%5 == 0 && i%3 == 0){
-            console.log('FizzBuzz')
-        } else if (i%3 == 0){
-            console.log('Fizz')
-        } else if (i%5 == 0){
-            console.log('Buzz')
-        } else {
-            console.log(i)
-        }
-    }
-}
-
-FizzBuzz()
+    
+            if (i%17 == 0){array.reverse()}
+        
+        let string = array.join("")
+    
+        console.log(string)
+    }};
+    
+    const readline = require('readline').createInterface(
+        {input: process.stdin,
+        output: process.stdout,},
+        
+        );
+    
+    readline.question(`What number do you want to count up to? `, number => {
+        FizzBuzz(number);
+        readline.close()
+    })
