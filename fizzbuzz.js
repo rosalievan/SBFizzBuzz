@@ -18,7 +18,7 @@ function FizzBuzz() {
         let string = array.join("")
     
         console.log(string)
-    }};
+    }}};
     
     const readline = require('readline').createInterface(
         {input: process.stdin,
